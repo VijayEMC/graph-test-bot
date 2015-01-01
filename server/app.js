@@ -1,11 +1,8 @@
 var express = require('express');
-var json2csv = require('nice-json2csv');
 var app = express();
-var httpntlm = require('httpntlm');
-
+var json2csv = require('nice-json2csv');
 
 app.use(json2csv.expressDecorator);
-
 
 app.listen(1337, function(){
 
