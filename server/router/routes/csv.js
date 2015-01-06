@@ -17,6 +17,16 @@ router.get('/srreport/:gdun', function (req, res){
 	});
 });
 
+// GET /csv/sev1report/:gdun
+router.get('/sev1report/:gdun', function (req, res){
+	var gdun = req.params.gdun;
+	sr.getSRs(gdun, function(data){
+		sr.getSev1s(data, function(sev1s){
+			res.csv(sev1s, gdun+"_sev1s.csv");
+		})
+	})
+});
+
 // GET /csv/installreport/:gdun
 router.get('/installreport/:gdun', function (req, res){
 	console.log('the gdun requested is ' + req.params.gdun);

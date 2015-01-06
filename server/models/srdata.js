@@ -25,3 +25,14 @@ exports.getSRs = function(gdun,callback){
 			      })
 
 }
+
+exports.getSev1s = function(srs, callback){
+	var result = new Array()
+	for(var i = 0; i < srs.rows.length; i++){
+		if(srs.rows[i]['Sev'] == 'S1'){
+			console.log(srs.rows[i]);
+			result.push(srs.rows[i]);
+		}
+	}
+        callback(result);
+}

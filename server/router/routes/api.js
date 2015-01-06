@@ -18,6 +18,17 @@ router.get('/srs', function (req, res){
 	})
 });
 
+// GET /api/sev1s
+router.get('/sev1s', function (req, res){
+	console.log('In the sev1 route');
+	sr.getSRs("081466849", function(data){
+		sr.getSev1s(data, function (sev1s){
+			res.send(sev1s);
+			console.log('Number of S1s is: '+sev1s.length);
+		});
+	})
+});
+
 // GET /api/installs
 router.get('/installs', function (req, res){
 	var gdun = "081466849";
