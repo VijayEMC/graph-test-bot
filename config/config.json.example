@@ -1,0 +1,9 @@
+{
+  "domain" : "corp",
+  "username" : "",
+  "password" : "",
+  "srurl1" : "http://opsconsole.corp.emc.com/sitelookup/new/models/getdataOPENSR.php?fld=Global%20Duns%20Number&val=",
+  "srurl2" : "&_search=false&nd=1415636922408&rows=500&page=1&sidx=&sord=asc&_=1415636740413",
+  "installurl1" : "http://opsconsole.corp.emc.com/sitelookup/models/getdataTLA.php?fld=Global%20Duns%20Number&val=",
+  "installurl2" : "&_search=false&nd=1415402285504&rows=4000&page=1&sidx=&sord=asc&_=1415391480174"
+}
