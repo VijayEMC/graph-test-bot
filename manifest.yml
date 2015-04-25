@@ -1,0 +1,7 @@
+---
+applications:
+- name: pnwreport
+  memory: 512M
+  host: pnwreport
+  domain: emc.com
+  command: node server/app.js
