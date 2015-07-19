@@ -3,5 +3,5 @@ applications:
 - name: pnwreport
   memory: 512M
   host: pnwreport
-  domain: emc.com
+  domain: bellevuelab.isus.emc.com
   command: node server/app.js
