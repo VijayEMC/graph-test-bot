@@ -9,14 +9,15 @@ app.use(function(req, res, next) {
 	next();
 });
 
-app.listen(process.env.VCAP_APP_PORT || 80);
-
+var listener = app.listen(process.env.PORT || 8080, function(){
+  console.log(listener.address().port);
+});
 //============ROUTER=============
 var router = require('./router')(app);
 
 // Error Handling
 app.use(function(err, req, res, next){
-	res.status(err.status || 500);
+	res.status(err.stack || 501);
 });
 
 module.exports = app;
