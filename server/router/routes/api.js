@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var sr = require('../../models/srdata');
 var ib = require('../../models/installdata');
+var xio = require('../../models/xioconfig');
 
 // GET /api
 router.get('/', function (req, res){
@@ -35,6 +36,16 @@ router.get('/installs/:gdun', function (req, res){
 	var gdun = req.params.gdun;
 	ib.getInstalls(gdun, function(data){
 		res.send(data);
+	})
+});
+
+// GET /api/xtremio
+router.get('/xtremio/:sn', function (req, res){
+  console.log('Getting XtremIO data for '+req.params.sn);
+	var sn = req.params.sn;
+	xio.getXtremioPackages(sn, function(data){
+		res.send(data);
+		data = null;
 	})
 });
 
