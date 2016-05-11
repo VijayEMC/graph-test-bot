@@ -1,7 +1,8 @@
 ---
 applications:
 - name: pnwreport
-  memory: 1GB
+  memory: 500MB
+  disk-quota: 200MG
   host: pnwreport
   domain: bellevuelab.isus.emc.com
   command: node server/app.js
