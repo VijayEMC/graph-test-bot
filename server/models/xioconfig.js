@@ -57,6 +57,7 @@ exports.getXtremioPackages = function(sn,callback){
                   console.log(zipEntry.toString()); // outputs zip entries information 
                   var xioFile = parser.toJson(zip.readAsText(zipEntry));
                   zip = null
+                  res = null
                   callback(xioFile);
                 }
               });
