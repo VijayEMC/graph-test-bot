@@ -3,10 +3,19 @@ var router = express.Router();
 var sr = require('../../models/srdata');
 var ib = require('../../models/installdata');
 var xio = require('../../models/xioconfig');
+var rep = require('../../models/rep');
 
 // GET /api
 router.get('/', function (req, res){
 	res.send('This is the api endpoint at /');
+});
+
+//GET /api/rep
+router.get('/rep/:last_name/:first_name/:middle_initial', function(req, res){
+  var rep_name = req.params.last_name + '%2c' + req.params.first_name + '%20' + req.params.middle_initial;
+  rep.getREP(rep_name,function(data){
+    res.send(data);
+  })
 });
 
 // GET /api/srs
