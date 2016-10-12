@@ -11,5 +11,6 @@
     "cheerio": "*",
     "adm-zip": "*",
     "xml2json": "*"
-  }
+  },
+  "engine": "node 6.7.0"
 }
