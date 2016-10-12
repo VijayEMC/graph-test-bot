@@ -55,7 +55,7 @@ exports.getXtremioPackages = function(sn,callback){
               zipEntries.forEach(function(zipEntry) {
                 if (zipEntry.entryName.endsWith(".txt")) {
                   console.log(zipEntry.toString()); // outputs zip entries information 
-                  var xioFile = parser.toJson(zip.readAsText(zipEntry));
+                  var xioFile = parser.toJson(zip.readAsText(zipEntry).replace(/\[\]/,""));
                   zip = null
                   res = null
                   callback(xioFile);

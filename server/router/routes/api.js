@@ -18,6 +18,14 @@ router.get('/rep/:last_name/:first_name/:middle_initial', function(req, res){
   })
 });
 
+//GET /api/customer
+router.get('/rep/:customer_name', function(req, res){
+  var rep_name = req.params.last_name
+  rep.getREP(rep_name,function(data){
+    res.send(data);
+  })
+});
+
 // GET /api/srs
 router.get('/srs/:gdun', function (req, res){
 	
