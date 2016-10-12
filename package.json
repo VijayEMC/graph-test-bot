@@ -12,5 +12,8 @@
     "adm-zip": "*",
     "xml2json": "*"
   },
-  "engine": "node 6.7.0"
+  "engines": {
+    "node": "6.7.0",
+    "npm": "3.10.7"
+  }
 }
