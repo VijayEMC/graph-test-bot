@@ -4,6 +4,7 @@ var sr = require('../../models/srdata');
 var ib = require('../../models/installdata');
 var xio = require('../../models/xioconfig');
 var rep = require('../../models/rep');
+var customer = require('../../models/customer');
 
 // GET /api
 router.get('/', function (req, res){
@@ -20,8 +21,16 @@ router.get('/rep/:last_name/:first_name/:middle_initial', function(req, res){
 
 //GET /api/customer
 router.get('/rep/:customer_name', function(req, res){
-  var rep_name = req.params.last_name
+  var rep_name = req.params.customer_name;
   rep.getREP(rep_name,function(data){
+    res.send(data);
+  })
+});
+
+//GET /api/gdun
+router.get('/gdun/:customer_name', function(req, res) {
+  var cust_name = req.params.customer_name;
+  customer.getGdun(cust_name, function(data){
     res.send(data);
   })
 });
