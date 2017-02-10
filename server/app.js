@@ -9,6 +9,17 @@ app.use(function(req, res, next) {
 	next();
 });
 
+require("appdynamics").profile({
+  controllerHostName: 'emccorporation745.saas.appdynamics.com',
+  controllerPort: 80, 
+  controllerSslEnabled: false,  // Set to true if controllerPort is SSL
+  accountName: 'EMCCorporation745',
+  accountAccessKey: 'ogge20wa2p6x', //required
+  applicationName: 'test',
+  tierName: 'backend', 
+  nodeName: 'cf1', 
+ });
+
 var listener = app.listen(process.env.PORT || 8080, function(){
   console.log(listener.address().port);
 });
