@@ -1,7 +1,7 @@
 ---
 applications:
 - name: pnwreport
-  buildpack: https://github.com/Appdynamics/nodejs-buildpack.git
+  buildpack: nodejs_buildpack
   memory: 256MB
   disk-quota: 200MB
   host: pnwreport
