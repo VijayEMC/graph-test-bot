@@ -1,8 +1,8 @@
 ---
 applications:
 - name: pnwreport
-  buildpack: nodejs_buildpack
-  memory: 256MB
+  buildpack: appd_nodejs_buildpack
+  memory: 512MB
   disk-quota: 200MB
   host: pnwreport
   domain: bellevuelab.isus.emc.com
