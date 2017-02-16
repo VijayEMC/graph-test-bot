@@ -10,7 +10,6 @@
     "nice-json2csv": "~0.2.0",
     "cheerio": "*",
     "adm-zip": "*",
-    "appdynamics": "*",
     "xml2json": "*"
   },
   "engines": {
