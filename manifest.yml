@@ -1,7 +1,7 @@
 ---
 applications:
 - name: pnwreport
-  buildpack: appd_nodejs_buildpack
+  buildpack: nodejs_buildpack
   memory: 512MB
   disk-quota: 200MB
   host: pnwreport
