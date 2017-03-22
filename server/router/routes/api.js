@@ -69,7 +69,7 @@ router.get('/installs/:gdun', function (req, res){
 });
 
 
-// GET /api/installs
+// GET /api/graph/installs
 router.get('/graph/installs/:gdun', function (req, res){
 	var gdun = req.params.gdun;
     
