@@ -10,6 +10,7 @@
     "nice-json2csv": "~0.2.0",
     "cheerio": "*",
     "adm-zip": "*",
+    "plotly": "*",
     "xml2json": "*"
   },
   "engines": {
