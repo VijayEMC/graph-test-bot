@@ -5,8 +5,9 @@ var ib = require('../../models/installdata');
 var xio = require('../../models/xioconfig');
 var rep = require('../../models/rep');
 var customer = require('../../models/customer');
+var config = require('../../config/plotly.config.json');
 // get plotly rocking
-var plotly = require('plotly')(username, api_key);
+var plotly = require('plotly')(config.username, config.plotlyKey);;
 
 // GET /api
 router.get('/', function (req, res){
