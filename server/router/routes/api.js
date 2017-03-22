@@ -5,6 +5,8 @@ var ib = require('../../models/installdata');
 var xio = require('../../models/xioconfig');
 var rep = require('../../models/rep');
 var customer = require('../../models/customer');
+// get plotly rocking
+var plotly = require('plotly')(username, api_key);
 
 // GET /api
 router.get('/', function (req, res){
@@ -62,6 +64,43 @@ router.get('/installs/:gdun', function (req, res){
 	var gdun = req.params.gdun;
 	ib.getInstalls(gdun, function(data){
 		res.send(data);
+	})
+});
+
+
+// GET /api/installs
+router.get('/graph/installs/:gdun', function (req, res){
+	var gdun = req.params.gdun;
+    
+	ib.getInstalls(gdun, function(data){
+        models = [];
+        counts = [];
+        for(var i=0; i<data.rows.length; i++){
+            var index = models.indexOf(data.rows[i].model);
+            if(index<0){
+                models.push(data.rows[i].model);
+                counts.push(1);
+            }
+            else{
+                counts[index]++;
+            }
+            
+        }
+        var plotData = [
+            {
+            x:models,
+            y:counts,
+            type: "bar"
+        }
+        ];
+        
+        var graphOptions = {filename: "basic-bar", fileopt: "overwrite"};
+        plotly.plot(plotData, graphOptions, function (err, msg) {
+            console.log(msg);
+            }); 
+        
+        
+		res.send(msg);
 	})
 });
 
