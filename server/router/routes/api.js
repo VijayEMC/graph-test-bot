@@ -72,7 +72,7 @@ router.get('/installs/:gdun', function (req, res){
 // GET /api/graph/installs
 router.get('/graph/installs/:gdun', function (req, res){
 	var gdun = req.params.gdun;
-    
+    console.log("in graph/installs route");
 	ib.getInstalls(gdun, function(data){
         models = [];
         counts = [];
