@@ -1,7 +1,7 @@
 {
-  "name": "pnwreport",
+  "name": "pnwreport_test",
   "version": "0.0.1",
-  "author": "Brandon Kvarda",
+  "author": "Brandon Kvarda: update by Vijay Kumar",
   "license": "BSD-2-Clause",
   "description": "Generates CSVs and JSON",
   "dependencies": {

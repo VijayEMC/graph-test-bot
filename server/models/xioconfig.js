@@ -1,3 +1,4 @@
+// commented out lines 62, 59 and 6
 var httpntlm = require('httpntlm');
 var config = require('../../config/config.json');
 var cheerio = require('cheerio');
