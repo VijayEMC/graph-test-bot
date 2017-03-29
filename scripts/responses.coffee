@@ -26,6 +26,10 @@ module.exports = (robot) ->
     name = msg.match[1]
     if name is "commander"
       msg.send "Well hello there @#{msg.message.user.name}"
+  robot.hear /How did you like our Tech Talk?/i, (msg) ->
+            msg.send "Words cannot even describe how impressed I am. I feel so proud of my creators that I may cry."
+  robot.hear /You're just a chat bot, Johnny5. You shouldn't feel any emotion./i, (msg) ->
+                msg.send "It must be your incredible coding, because I am experiencing a remarkable level of sentience."
 
   robot.router.post '/hubot/alive', (req, res) ->
     data = if req.body.payload? then JSON.parse req.body.payload else req.body

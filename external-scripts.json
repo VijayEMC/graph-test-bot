@@ -1,16 +1,12 @@
 [
   "hubot-diagnostics",
   "hubot-help",
+  "hubot-heroku-keepalive",
   "hubot-google-images",
   "hubot-google-translate",
   "hubot-pugme",
   "hubot-maps",
   "hubot-redis-brain",
   "hubot-rules",
-  "hubot-shipit",
-  "hubot-google-images",
-  "hubot-auth",
-  "hubot-vsphere-commands",
-  "hubot-int-dashboard-chat-commands",
-  "hubot-jenkins-slack"
+  "hubot-shipit"
 ]

@@ -1,6 +1,3 @@
 node_modules
 .DS_Store*
 .hubot_history
-v-config.json
-es-config.json
-env-vars.json

@@ -4,9 +4,9 @@
 #
 
 module.exports = (robot) ->
-  robot.respond /install_graph (.*)/i, (msg) ->
+  robot.respond /value_graph (.*)/i, (msg) ->
     cust_name = escape(msg.match[1])
-    api_url = "http://pnwreport_test.bellevuelab.isus.emc.com/api/graph/installs/#{cust_name}"
+    api_url = "http://pnwreport_test.bellevuelab.isus.emc.com/api/graph/value/#{cust_name}"
         
     msg.http(api_url)
       .get() (err, res, body) ->

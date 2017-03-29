@@ -15,7 +15,11 @@ module.exports = (robot) ->
     msg.http(api_url)
       .get() (err, res, body) ->
         try
-          json = JSON.parse(body)          
+          console.log("get_ib.coffee - in GET request")
+          json = JSON.parse(body)
+          console.log("returned object: ", json)
+          if(json == null)
+                msg.send "HTTP Call returned empty object."
           msgOutput = "\n" + break_line + "\n"
           #msgOutput = msgOutput + "| CS Name: #{json[1].["CS_CUSTOMER_NAME"]}     |   GDUNS: #{cust_name}               \n"
           #msgOutput = msgOutput + break_line
