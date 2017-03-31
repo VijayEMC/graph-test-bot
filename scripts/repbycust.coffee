@@ -12,6 +12,7 @@ module.exports = (robot) ->
     api_url = "http://pnwreport_test.bellevuelab.isus.emc.com/api/repbycust"
     postBody = {"coName" : cust_name}
     jString = JSON.stringify(postBody)
+    console.log jString
    
     
     #request.post
@@ -26,6 +27,7 @@ module.exports = (robot) ->
                 
                 
     msg.http(api_url)
+      .headers('Content-Type': 'application/json')
       .post(jString) (err, res, body) ->
         try
           msg.send body
