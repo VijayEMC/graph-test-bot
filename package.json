@@ -11,7 +11,9 @@
     "cheerio": "*",
     "adm-zip": "*",
     "plotly": "*",
-    "xml2json": "*"
+    "xml2json": "*",
+    "body-parser": "*",
+    "connect": "*"
   },
   "engines": {
     "node": "6.9.2",

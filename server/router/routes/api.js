@@ -9,6 +9,7 @@ var config = require('../../../config/plotlyconfig.json');
 // get plotly rocking
 var plotly = require('plotly')(config.username, config.plotlyKey);
 var helper = require('./helperFunctions');
+var bodyParser = require('body-parser');
 
 // GET /api
 router.get('/', function (req, res){
@@ -43,24 +44,17 @@ router.get('/gdun/:customer_name', function(req, res) {
 //POST /api/repbycust
 router.post('/repbycust', function(req, res) {
   console.log("In Post Request Route");
-  //var cust_name = req.params.customer_name;
-  console.log(req);
-  var name1 = req.body.coName;
-  //var name2 = req.body.params[1];
-  console.log("cust_name: ", name1);
-  var stringName = cust_name.toString();
-  customer.getGdun(stringName, function(data){
+  console.log(req.body.coName);
+  customer.getGdun(req.body.coName, function(data){
         var repName = null;
         var i = 0;
-        while(repName==null)
+        while(repName==null && i <data.length)
             {
                 repName = data[i]["Sales Rep"]
                 i++;
             }
-     
-       //var repInfo = repName
     
-        res.send(repInfo);
+        res.send(repName);
   })
 });
 
@@ -95,8 +89,8 @@ router.get('/srs_graph/:gdun', function (req, res){
               
         };   
         var layout = { title:  data.rows[0]["GLOBAL_DUNS_NAME"], yaxis: {title: "Number of SRS"}, xaxis: {title: "SRS by Customer"}};
-        var thisGraph = data.rows[0]["GLOBAL_DUNS_NAME"]+"SRSGraph"
-        var graphOptions = {layout: layout, filename: "thisGraph"};
+        var thisGraph = data.rows[0]["GLOBAL_DUNS_NAME"]
+        var graphOptions = {layout: layout, filename: "srsgraph"};
         plotly.plot(plotData, graphOptions, function (err, msg) {
 	       if (err) return console.log(err);
 	       console.log(msg);
@@ -216,8 +210,8 @@ router.get('/graph/installs/:gdun', function (req, res){
            
         };
         var plotData = [trace1, trace2, trace3];
-        var thisGraph = data.rows[0]["CS_CUSTOMER_NAME"]+"InstallGraph"
-        var graphOptions = {layout: layout, filename: "thisGraph"};
+        var thisGraph = data.rows[0]["CS_CUSTOMER_NAME"]
+        var graphOptions = {layout: layout, filename: "installgraph"};
         //var plotlyReturn = plotly.plot(plotData, graphOptions);
         plotly.plot(plotData, graphOptions, function (err, msg) {
             if(err) return console.log(err);
@@ -299,8 +293,8 @@ router.get('/graph/value/:gdun', function (req, res){
            
         };
         var plotData = [trace1, trace2, trace3, trace4];
-        var thisGraph = data.rows[0]["CS_CUSTOMER_NAME"]+"ValueGraph"
-        var graphOptions = {layout: layout, filename: thisGraph};
+        var thisGraph = data.rows[0]["CS_CUSTOMER_NAME"];
+        var graphOptions = {layout: layout, filename: "value-graph"};
         //var plotlyReturn = plotly.plot(plotData, graphOptions);
         plotly.plot(plotData, graphOptions, function (err, msg) {
             if(err) return console.log(err);

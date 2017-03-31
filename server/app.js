@@ -1,8 +1,10 @@
 var express = require('express');
 var app = express();
 var json2csv = require('nice-json2csv');
+var bodyParser = require('body-parser');
 
 app.use(json2csv.expressDecorator);
+app.use(bodyParser.json());
 app.use(function(req, res, next) {
 	res.header("Access-Control-Allow-Origin", "*");
 	res.header("Access-Control-Allow-Headers", "X-Requested-With");
